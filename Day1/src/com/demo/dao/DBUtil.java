@@ -68,4 +68,14 @@ public class DBUtil {
         }
 
     }
+
+	public static void closeConnection() {
+		// TODO Auto-generated method stub
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 }
