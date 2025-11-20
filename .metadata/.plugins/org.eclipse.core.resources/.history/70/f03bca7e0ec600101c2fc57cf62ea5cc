@@ -1,0 +1,71 @@
+package com.demo.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class DBUtil {
+    static Connection conn = null;
+
+    public static Connection GetConnetion() {
+        if (conn == null) {
+
+            try {
+                DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+                String URL = "jdbc:mysql://localhost:3306/aakanksha?useSSL=false&allowPublicKeyRetrieval=true";
+
+                conn = DriverManager.getConnection(URL, "aakanksha", "Ackp@7336");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return conn;
+    }
+
+    public static void main(String[] args) {
+        Connection testConn = GetConnetion();
+        if (testConn != null) {
+            System.out.println("Test Connection Ban gaya!!");
+
+            try {
+                // SELECT
+                PreparedStatement pst = testConn.prepareStatement("Select * from student");
+                ResultSet rs = pst.executeQuery();
+                while (rs.next()) {
+                    System.out.println("pid: " + rs.getInt("studentID"));
+                    System.out.println("Name: " + rs.getString("name"));
+                    System.out.println("============================");
+                }
+
+                // INSERT
+                PreparedStatement pst1 = conn.prepareStatement("insert into student values (?,?)");
+                int studentID = 490;
+                String name = "Kunal";
+
+                pst1.setInt(1, studentID);
+                pst1.setString(2, name);
+
+                int n = pst1.executeUpdate();
+                if (n > 0) {
+                    System.out.println("Insertion done");
+                } else {
+                    System.out.println("Error");
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        } else {
+            System.out.println("Test Connection nahi ban rha.");
+        }
+
+    }
+}
