@@ -2,10 +2,8 @@ package com.demo.beans;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Faculty {
@@ -15,8 +13,6 @@ public class Faculty {
 	private int fid;
 	private String fname;
 	private String specialskills;
-	@OneToOne(mappedBy="fl",fetch=FetchType.LAZY) 
-	private Course co1;
 	public Faculty() {
 		super();
 	}
