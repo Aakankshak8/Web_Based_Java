@@ -19,9 +19,9 @@ public class TestCourseData {
         Transaction tr = session.beginTransaction();
         
         Faculty f1 = new Faculty("xyz", "AI/ML");
-        Faculty f2 = new Faculty(2,"ABC", "JAVA,CPP");
+        Faculty f2 = new Faculty("ABC", "JAVA,CPP");
         Course c1 = new Course("AI/ML",  6, f1);
-        Course c2 = new Course(2, "CDAC", 4, f2);
+        Course c2 = new Course("CDAC", 4, f2);
         
         session.save(c1);
         session.save(f1);
