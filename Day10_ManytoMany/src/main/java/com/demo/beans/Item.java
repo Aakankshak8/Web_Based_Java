@@ -2,6 +2,7 @@ package com.demo.beans;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -16,7 +17,7 @@ public class Item {
 	private double price;
 	private String Iname;
 	
-	@ManyToMany(mappedBy="sItem")
+	@ManyToMany(mappedBy="sItem",cascade = CascadeType.ALL)
 	Set<Cart> cset;
 
 	public Item() {
