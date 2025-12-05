@@ -10,18 +10,18 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-//@Configuration
-//@PropertySource("data.properties")
+@Configuration
+@PropertySource("data.properties")
 public class MyConfiguration {
 	
-	//@Bean 
+    @Bean 
 	public PropertySourcesPlaceholderConfigurer getPlaceHolder() {
 		System.out.println("in getPlaceHolder");
 		PropertySourcesPlaceholderConfigurer placeholder=new PropertySourcesPlaceholderConfigurer();
 		return placeholder;
 	}
 	
-	//@Bean
+	@Bean
 	public DataSource getDataSource() {
 		DriverManagerDataSource ds=new DriverManagerDataSource();
 		ds.setDriverClassName(null);
@@ -31,7 +31,7 @@ public class MyConfiguration {
 		return ds;
 	}
 	
-	//@Bean
+	@Bean
 	public JdbcTemplate getJdbcTemplate() {
 		JdbcTemplate jdbcTemplate=new JdbcTemplate();
 		jdbcTemplate.setDataSource(getDataSource());
