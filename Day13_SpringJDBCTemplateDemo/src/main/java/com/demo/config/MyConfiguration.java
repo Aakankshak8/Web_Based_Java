@@ -14,14 +14,14 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 @PropertySource("data.properties")
 public class MyConfiguration {
 	
-    @Bean 
+    //@Bean 
 	public PropertySourcesPlaceholderConfigurer getPlaceHolder() {
 		System.out.println("in getPlaceHolder");
 		PropertySourcesPlaceholderConfigurer placeholder=new PropertySourcesPlaceholderConfigurer();
 		return placeholder;
 	}
 	
-	@Bean
+	//@Bean
 	public DataSource getDataSource() {
 		DriverManagerDataSource ds=new DriverManagerDataSource();
 		ds.setDriverClassName(null);
@@ -31,7 +31,7 @@ public class MyConfiguration {
 		return ds;
 	}
 	
-	@Bean
+	//@Bean
 	public JdbcTemplate getJdbcTemplate() {
 		JdbcTemplate jdbcTemplate=new JdbcTemplate();
 		jdbcTemplate.setDataSource(getDataSource());

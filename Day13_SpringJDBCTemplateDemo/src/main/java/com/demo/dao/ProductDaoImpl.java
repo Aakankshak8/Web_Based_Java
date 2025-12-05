@@ -20,7 +20,7 @@ public class ProductDaoImpl implements ProductDao{
 	@Override
 	public boolean save(Product p) {
 		int n=jdbcTemplate.update("insert into product values(?,?,?,?,?,?)",
-				new Object[] {p.getPid(),p.getPname(),p.getQty(),p.getPrice(),p.getMfgdate(),p.getCid()});
+				new Object[] {p.getPid(),p.getPname(),p.getQty(),p.getPrice(),p.getMfg(),p.getCid()});
 	
 	    return n >0;
 	}
@@ -36,9 +36,9 @@ public class ProductDaoImpl implements ProductDao{
 			p.setPrice(rs.getDouble(3));
 			p.setQty(rs.getInt(4));
 			if(rs.getDate(5)==null) {
-				p.setMfgdate(null);
+				p.setMfg(null);
 			}else {
-			   p.setMfgdate(rs.getDate(5).toLocalDate());
+			   p.setMfg(rs.getDate(5).toLocalDate());
 			}
 			p.setCid(rs.getInt(6));
 			
@@ -57,9 +57,9 @@ public class ProductDaoImpl implements ProductDao{
 					p.setPrice(rs.getDouble(3));
 					p.setQty(rs.getInt(4));
 					if(rs.getDate(5)==null) {
-						p.setMfgdate(null);
+						p.setMfg(null);
 					}else {
-					   p.setMfgdate(rs.getDate(5).toLocalDate());
+					   p.setMfg(rs.getDate(5).toLocalDate());
 					}
 					p.setCid(rs.getInt(6));
 					
@@ -107,9 +107,9 @@ public class ProductDaoImpl implements ProductDao{
 		  p.setPrice(rs.getDouble(3));
 		  p.setQty(rs.getInt(4));
 		  if(rs.getDate(5)==null) {
-			  p.setMfgdate(null);
+			  p.setMfg(null);
 		  }else {
-		      p.setMfgdate(rs.getDate(5).toLocalDate());
+		      p.setMfg(rs.getDate(5).toLocalDate());
 		  }
 		  p.setCid(rs.getInt(6));
 		  return p;
