@@ -1,22 +1,21 @@
 
+
 package com.demo.test;
 
 import java.util.List;
 import java.util.Scanner;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.demo.beans.Product;
-import com.demo.config.MyConfiguration;
 import com.demo.service.ProductService;
 
 public class TestJDBCdemo {
 
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
-		ApplicationContext ctx = new AnnotationConfigApplicationContext(MyConfiguration.class);
+		ApplicationContext ctx=new ClassPathXmlApplicationContext("springconfig.xml");
 		ProductService pservice=(ProductService)ctx.getBean("productServiceImpl");
 		int choice=0;
 		do {
