@@ -21,11 +21,13 @@ public class StudentDaoImpl implements StudentDao {
 
 		List<Student> slist = jdbctemplate.query("select * from student_details", (rs, n) -> {
 			Student s = new Student();
-			s.setSid(rs.getInt(1));
-			s.setSname(rs.getString(2));
-			s.setEmail(rs.getString(3));
-			s.setPercentage(rs.getDouble(4));
-			s.setAddress(rs.getString(5));
+			s.setSid(rs.getInt(1));          // sid
+			s.setSname(rs.getString(2));     // sname
+			s.setEmail(rs.getString(3));     // email
+			s.setAddress(rs.getString(4));   // address (VARCHAR)
+			s.setPercentage(rs.getDouble(5));// percentage (DOUBLE)
+
+			
 
 			return s;
 		});
@@ -35,7 +37,7 @@ public class StudentDaoImpl implements StudentDao {
 	@Override
 	public boolean addStudent(Student s) {
 		// TODO Auto-generated method stub
-		int n = jdbctemplate.update("insert into student_details values(?,?,?,?,?)", new Object[] { s.getSid(),s.getSname(), s.getEmail(), s.getPercentage(),s.getAddress() });
+		int n = jdbctemplate.update("insert into student_details values(?,?,?,?,?)", new Object[] { s.getSid(),s.getSname(), s.getEmail(),s.getAddress() , s.getPercentage()});
 		System.out.println("percentage = "+s.getPercentage());
 		return n > 0;
 	}

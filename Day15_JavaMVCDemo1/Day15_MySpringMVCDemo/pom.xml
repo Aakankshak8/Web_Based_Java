@@ -1,13 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.demo</groupId>
-  <artifactId>Day14_MVC</artifactId>
+  <artifactId>Day15_MySpringMVCDemo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>Day14_MVC</name>
-  <description>Day14_MVC</description>
-  
-   <properties>
+  <name>Day15_MySpringMVCDemo</name>
+  <description>Day15_MySpringMVCDemo</description>
+<properties>
   
       
 		<jstl.version>1.2.1</jstl.version>
@@ -93,4 +92,5 @@
 		</plugins>
 	</build>
 	
+
 </project>

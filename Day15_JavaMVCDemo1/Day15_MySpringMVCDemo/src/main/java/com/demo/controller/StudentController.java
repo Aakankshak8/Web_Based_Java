@@ -40,12 +40,12 @@ public class StudentController {
 		}
 	}
 	
-	@PostMapping("addstudent")
+	@GetMapping("addstudent")
 	public String ShowProductForm(Model mymodel) {
 		mymodel.addAttribute("p1",new Student());
 		return "insertStudent";
 	}
-	@GetMapping("insertStudent")
+	@PostMapping("insertStudent")
 	public ModelAndView insertStudent(@ModelAttribute Student s) {
 		System.out.println(s);
 		boolean status=sservice.addStudent(s);
