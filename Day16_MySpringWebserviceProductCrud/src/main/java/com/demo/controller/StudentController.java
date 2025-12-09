@@ -21,13 +21,13 @@ public class StudentController {
     @Autowired
     private StudentService sservice;
 
-    // GET ALL STUDENTS
+   
     @GetMapping("/api/students")
     public ResponseEntity<List<Student>> getAllStudents() {
         return ResponseEntity.ok(sservice.getAllStudent());
     }
 
-    // GET ONE STUDENT
+  
     @GetMapping("/api/students/{sid}")
     public ResponseEntity<Student> getById(@PathVariable int sid) {
         Student s = sservice.getById(sid);
@@ -37,7 +37,7 @@ public class StudentController {
             return ResponseEntity.notFound().build();
     }
 
-    // INSERT STUDENT
+    
     @PostMapping("/api/students")
     public ResponseEntity<String> addStudent(@RequestBody Student s) {
         boolean status = sservice.addStudent(s);
@@ -47,7 +47,7 @@ public class StudentController {
             return ResponseEntity.ok("Error occurred");
     }
 
-    // UPDATE STUDENT
+    
     @PutMapping("/api/students")
     public ResponseEntity<String> updateStudent(@RequestBody Student s) {
         boolean status = sservice.updateStudent(s);
@@ -57,7 +57,7 @@ public class StudentController {
             return ResponseEntity.ok("Error occurred");
     }
 
-    // DELETE STUDENT
+
     @DeleteMapping("/api/students/{sid}")
     public ResponseEntity<String> deleteStudent(@PathVariable int sid) {
         boolean status = sservice.deleteById(sid);
