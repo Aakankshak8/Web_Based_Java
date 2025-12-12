@@ -23,8 +23,8 @@
         <property name="hibernate.current_session_context_class">thread</property>
 
         <!-- Mappings -->
-        <mapping class="com.demo.beans.Student"/>
-        <mapping class="com.demo.beans.Course"/>
+        <mapping class="com.demo.beans.Employee"/>
+        <mapping class="com.demo.beans.Project"/>
 
     </session-factory>
 </hibernate-configuration>
